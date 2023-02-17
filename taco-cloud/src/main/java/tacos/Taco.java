@@ -4,10 +4,19 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
 public class Taco implements Serializable {
 		
 	private static final long serialVersionUID = 1L;
+	
+	@NotNull
+	@Size(min=5, message="Name must be at least 5 char long")
 	private String name;
+	
+	@NotNull
+	@Size(min=1, message="You must choose at least 1 ingredient")
 	private List<Ingredient> ingredients;
 	
 	public Taco() {}
